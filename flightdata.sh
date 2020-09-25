@@ -18,4 +18,9 @@ airport_flight_calculator () {
 
 gainesville_delayed_flights () {
 	echo "Function gainesville_delayed_flights executed."
+#Examine the data set values DEP_DEL15 and ARR_DEL15 (values of 1.00=Yes, 0.00=No) in terms of the flight being delayed
+#Make a function that counts a line ONLY if there is a value of 1.00 in either of the two fields
+
+
+
 }
