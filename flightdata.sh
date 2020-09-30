@@ -76,13 +76,43 @@ usr_delay_bonus (){
         fi
 }
 
+# function to conduct multiple user inputed searches for delayed flights
+usr_search_loop (){
+	# intitalizes loop exit status variable to 0
+        exit_status=0
+
+	# will loop search function until exit_status does NOT equal 0
+        while [[ $exit_status -eq 0 ]]
+        do
+		# call usr_delay_bonus function
+                usr_delay_bonus
+
+		# asks if user would like to conduct more searches
+                echo -n "Would you like to search again? (y/n) "
+                read usr_search_choice
+
+		# if y is inputed, exit_status remains 0 and loop repeats
+		# if n (or anything other than y) is entered, exit_status is changed to 1 and the function ends
+                if [[ $usr_search_choice = "y" ]]
+                then
+                    	exit_status=0
+                elif  [[ $usr_search_choice = "n" ]]
+                then
+                    	exit_status=1
+                else
+                    	echo "ERROR: y/n not entered."
+                        exit_status=1
+                fi
+        done
+}
+
 # run the GNV_to_dest_15_delay function for the three cities specified in the table
 GNV_to_dest_15_delay ATL
 GNV_to_dest_15_delay CLT
 GNV_to_dest_15_delay MIA
 
-# run the usr_delay_bonus function
-usr_delay_bonus
+# run usr_search_loop function
+usr_search_loop
 
 unique_airport_codes () {
 	echo "Function unique_airport_codes executed."
