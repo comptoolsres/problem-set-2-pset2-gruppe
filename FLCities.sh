@@ -16,6 +16,8 @@ FLCities=$(paste -d "\n" Origin Dest | sort | uniq)
 }
 
 florida_city_airports
+rm Origin
+rm Dest
 echo "$FLCities"
 echo "Function florida_city_airports executed."
 
