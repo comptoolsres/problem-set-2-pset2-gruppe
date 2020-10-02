@@ -9,7 +9,6 @@ You should work in groups of 2 to 4 (not alone and not more than 4). If this is 
 1. Ian A. Culver
 1. Alexander Pillai
 1. Weihong Gu
-Please also creat a group in Problem Set 2 groups in Canvas with these people.
 
 ## Due date
 Problem Set 2 should be turned in on **Friday, October 2nd**.
