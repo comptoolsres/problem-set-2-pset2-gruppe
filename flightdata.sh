@@ -1,9 +1,10 @@
 #!/bin/bash
 # This will be the shared script and we will each work on a seperate function
+
+# set a global file used in the script
 FILE=/blue/bsc4452/share/Class_Files/data/flights.May2018-April2020.csv
+
 #Question 2: Total flights delayed due to wheather
-
-
 Wheather_Delay (){
 City=$1
 LineCount=$(grep \"GNV\".*\"$City\" $FILE | cut -f22 -d',' | wc -l)
@@ -15,11 +16,6 @@ echo "There are $WheatherDelay flights to $1 got deplayed due to wheather"
 Wheather_Delay ATL
 Wheather_Delay CLT
 Wheather_Delay MIA
-
-
-
-# set a global file used in the script
-FILE=/blue/bsc4452/share/Class_Files/data/flights.May2018-April2020.csv
 
 # function to search the FILE for relevant lines and extracts the number of flights delayed for a given input destination city
 GNV_to_dest_15_delay (){
@@ -146,9 +142,7 @@ GNV_to_city ATL
 GNV_to_city CLT
 GNV_to_city MIA
 
-
 # question 3: Within a function, print a list of all unique airport codes contained in the dataset.
-
 unique_airport_codes () {
 
 echo "the list of all unique airport codes contained in the dataset is:"
@@ -159,12 +153,10 @@ sed 1d $FILE | cut -d, -f3,7 |  tr ',' '\n' | sort | uniq
 return
 
 }
+
 unique_airport_codes
 
-
-
 #Question4: #function to find FL cities that have airports
-
 florida_city_airports () {
 #Find FL airports from the origin cities list
 cat $FILE | cut -f4,5 -d,  | grep FL | sort | uniq > Origin
@@ -178,14 +170,13 @@ FLCities=$(paste -d "\n" Origin Dest | sort | uniq)
 rm Origin
 rm Dest
 }
+
 florida_city_airports
+
 echo "Here is the list of the FL cities that have airport:"
 echo "$FLCities"
 
 echo "Function florida_city_airports executed."
-
-
-
 
 airport_flight_calculator () {
 	echo "Function airport_flight_calculator executed."
