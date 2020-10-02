@@ -4,12 +4,12 @@
 # set a global file used in the script
 FILE=/blue/bsc4452/share/Class_Files/data/flights.May2018-April2020.csv
 
-#Question 2: Total flights delayed due to wheather
+#Question 2: Total flights delayed due to weather
 Wheather_Delay (){
 City=$1
 LineCount=$(grep \"GNV\".*\"$City\" $FILE | cut -f22 -d',' | wc -l)
 WheatherDelay=$((LineCount-1))
-echo "There are $WheatherDelay flights to $1 got deplayed due to wheather"
+echo "There are $WheatherDelay flights to $1 got delayed due to weather"
 
 }
 
@@ -130,7 +130,7 @@ usr_search_loop
 # question 2: GNV to ATL/CLT/MIA total flights
 GNV_to_city (){
 
-echo "total flights muber to $1 is"
+echo "total number of flights to $1 is"
 city=$1
 
 #flights number
@@ -173,7 +173,7 @@ rm Dest
 
 florida_city_airports
 
-echo "Here is the list of the FL cities that have airport:"
+echo "Here is the list of the FL cities that have an airport:"
 echo "$FLCities"
 
 echo "Function florida_city_airports executed."
