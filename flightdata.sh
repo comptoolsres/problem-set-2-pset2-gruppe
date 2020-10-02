@@ -114,10 +114,37 @@ GNV_to_dest_15_delay MIA
 # run usr_search_loop function
 usr_search_loop
 
+# question 2: GNV to ATL/CLT/MIA total flights
+GNV_to_city (){
+
+echo "total flights muber to $1 is"
+city=$1
+
+#flights number
+grep \"GNV\".*\"$city\" $FILE | wc -l
+
+return
+}
+GNV_to_city ATL
+GNV_to_city CLT
+GNV_to_city MIA
+
+
+# question 3: Within a function, print a list of all unique airport codes contained in the dataset.
+
 unique_airport_codes () {
-	echo "Function unique_airport_codes executed."
+
+echo "the list of all unique airport codes contained in the dataset is:"
+
+#remove header, combine two columns of airport code to one line
+sed 1d $FILE | cut -d, -f3,7 |  tr ',' '\n' | sort | uniq
+
+return
 
 }
+unique_airport_codes
+
+
 
 florida_city_airports () {
 	echo "Function florida_city_airports executed."
