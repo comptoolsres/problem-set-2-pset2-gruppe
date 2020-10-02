@@ -7,10 +7,10 @@ FILE=/blue/bsc4452/share/Class_Files/data/flights.May2018-April2020.csv
 # Question 2: Total flights delayed due to weather
 Wheather_Delay (){
 	City=$1
-	LineCount=$(grep \"GNV\".*\"$City\" $FILE | cut -f22 -d',' | wc -l)
-	WheatherDelay=$((LineCount-1))
+	LineCount=$(grep \"GNV\".*\"$City\" $FILE | cut -f24 -d',' | grep ^[^0] | wc -l)
+	# WheatherDelay=$((LineCount-1))
 
-	echo "There are $WheatherDelay flights to $1 that were delayed due to weather."
+	echo "There are $LineCount flights to $1 that were delayed due to weather."
 }
 
 # function to search the FILE for relevant lines and extracts the number of flights delayed for a given input destination city
