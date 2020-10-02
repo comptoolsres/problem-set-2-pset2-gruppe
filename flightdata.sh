@@ -9,7 +9,7 @@ GNV_to_city (){
 echo "total flights muber to $1 is"
 city=$1
 
-#remove header
+#flights number
 grep \"GNV\".*\"$city\" $FILE | wc -l
 
 return
@@ -25,7 +25,8 @@ unique_airport_codes () {
 
 echo "the list of all unique airport codes contained in the dataset is:"
 
-cut -d, -f3,7 $FILE |  tr ',' '\n' | sort | uniq
+#remove header, combine two columns of airport code to one line
+sed 1d $FILE | cut -d, -f3,7 |  tr ',' '\n' | sort | uniq
 
 return
 
