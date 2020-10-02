@@ -31,9 +31,9 @@ The goal of this project is to write one or more Bash scripts that do the follow
 
 GNV to: | Total flights | Total flights delayed (≥15min) | Total flights delayed due to Weather
 --------|---------------|------------------------|-------------------------------
-ATL | 5093 | 1018 | 5092
-CLT | 2902 | 539 | 2901
-MIA | 1297 | 213 | 1296
+ATL | 5093 | 1018 | 132
+CLT | 2902 | 539 | 29
+MIA | 1297 | 213 | 21
 
 **3. Within a function**, print a list of all unique airport codes contained in the dataset. (*3 points*)
 
