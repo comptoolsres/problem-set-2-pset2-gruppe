@@ -184,6 +184,8 @@ airport_flight_calculator () {
 	echo "Function airport_flight_calculator executed."
 
 }
+#Question1
+gainesville_delayed_flights
 
 gainesville_delayed_flights () {
 	echo "Function gainesville_delayed_flights executed."
