@@ -31,7 +31,9 @@ GNV_to_dest_15_delay (){
 	# for dest_15 and arriv_15, cut the number of 1s counted and save the sum
         dest_15_count=$(echo $dest_15 | cut -f1 -d' ')
         arriv_15_count=$(echo $arriv_15 | cut -f1 -d' ')
-        total_15_delay=$((dest_15_count+arriv_15_count))
+
+	# search for lines in FILE with GNV as departure and dest_city as arrival and count the flights with any delay
+        total_15_delay=$(grep \"GNV\".*\"$dest_city\" $FILE | cut -f13,16 -d','| grep 1.00 | wc -l)
 
 	# print the total number of delayed flights for the dest_city inputed
         echo "The total number of delayed flights from GNV to $1 is:  $total_15_delay."
@@ -59,7 +61,7 @@ usr_delay_bonus (){
 		# for dest_15_code and arriv_15_code, cut the number of 1s counted and save the sum
                 dest_15_code_count=$(echo $dest_15_code | cut -f1 -d' ')
                 arriv_15_code_count=$(echo $arriv_15_code | cut -f1 -d' ')
-                total_15_delay_code=$((dest_15_code_count+arriv_15_code_count))
+                total_15_delay_code=$(grep $usr_input_code $FILE | cut -f13,16 -d',' | grep 1.00 | wc -l)
 
 		# print the total number of delayed flights into/out of inputed code
                 echo "The total number of delayed flights into or out of $usr_input_code is: $total_15_delay_code."
@@ -79,7 +81,7 @@ usr_delay_bonus (){
 		# for dest_15_city and arriv_15_city, cut the number of 1s counted and save the sum
                 dest_15_city_count=$(echo $dest_15_city | cut -f1 -d' ')
                 arriv_15_city_count=$(echo $arriv_15_city | cut -f1 -d' ')
-                total_15_delay_city=$((dest_15_city_count+arriv_15_city_count))
+                total_15_delay_city=$(grep "$usr_input_city" $FILE | cut -f13,16 -d',' | grep 1.00 | wc -l)
 
 		# print the total number of delayed flights into/out of inputed City, State
                 echo "The total number of delayed flights into or out of $usr_input_city is: $total_15_delay_city."
