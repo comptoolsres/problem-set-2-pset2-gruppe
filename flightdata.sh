@@ -160,7 +160,7 @@ Wheather_Delay ATL
 Wheather_Delay CLT
 Wheather_Delay MIA
 
-echo "Question3:"
+echo "Question 3:"
 unique_airport_codes
 
 echo "Question 4:"
