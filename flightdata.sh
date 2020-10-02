@@ -185,7 +185,6 @@ airport_flight_calculator () {
 
 }
 #Question1
-gainesville_delayed_flights
 
 gainesville_delayed_flights () {
 	echo "Function gainesville_delayed_flights executed."
@@ -197,3 +196,5 @@ echo "The number of delayed flights to and from gainesville regional airport is:
 grep GNV $FILE | cut -f13,16 -d, | grep 1.00 | wc -l
 
 }
+Gainesville_delayed_flits
+
