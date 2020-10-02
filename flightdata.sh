@@ -23,6 +23,6 @@ gainesville_delayed_flights () {
 #Additionally grep only the flights with the GNV airport code and this will exclude any lines that do not have GNV as
 #a destination or origin.
 echo "The number of delayed flights to and from gainesville regional airport is:"
-grep GNV flights.May2018-April2020.csv | cut -f13,16 -d, | grep 1.00 | wc -l
+grep GNV $FILE | cut -f13,16 -d, | grep 1.00 | wc -l
 
 }
